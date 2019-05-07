@@ -17,15 +17,6 @@ html(lang='en')
             a.nav-link(href='/about') About
           li.nav-item
             a.nav-link(href='/contact') Contact
-          li.nav-item.dropdown
-            a#dropdown01.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
-            .dropdown-menu(aria-labelledby='dropdown01')
-              a.dropdown-item(href='#') Action
-              a.dropdown-item(href='#') Another action
-              a.dropdown-item(href='#') Something else here
-        form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='text', placeholder='Search', aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
     section.container
       block content
 
@@ -34,26 +25,15 @@ html(lang='en')
     footer.container
       p(class='text-center') © Company 2017-2019
     script.
+      //Not working at the moment
       let ul = document.getElementById("navbar-menu");
-      console.log('here');
       let li = ul.getElementsByTagName("li");
       li[0].classList.add("active");
       for(let i =0; i < li.length; i++) {
-      console.log('here2');
         li[i].addEventListener("click", function() {
           removeActiveClass();
-          console.log('here3');
           this.classList.add("active");
         });
-        if(li[i].classList.contains('active')) {
-          console.log(li[i]);
-          let childATag = li[i].children[0];
-          let span = document.createElement("span");
-          span.setAttribute("class", "sr-only");
-          span.textContent = "(current)";
-          console.log(span);
-          childATag.appendChild(span);
-        }
       }
       function removeActiveClass() {
         for(let i = 0; i < li.length; i++) {
