@@ -1,0 +1,25 @@
+extend layout
+
+block content
+  h2.page-header Register
+  p Please register using the form below
+  form(method='post', action='/users/register', enctype='multipart/form-data')
+    .form-group
+      label Name
+      input.form-control(name='name', type='text', placeholder='Name Goes Here')
+    .form-group
+      label Email
+      input.form-control(name='email', type='text', placeholder='Email Goes Here')
+    .form-group
+      label Username
+      input.form-control(name='username', type='text', placeholder='Username Goes Here')
+    .form-group
+      label Password
+      input.form-control(name='password', type='password', placeholder='Password Goes Here')
+    .form-group
+      label Confirm Password
+      input.form-control(name='password2', type='password', placeholder='Confirm Password')
+    .form-group
+      label Profile Image
+      input.form-control(name='profileimg', type='file')
+    input.btn.btn-primary(type='submit', name='submit', value='Register')
