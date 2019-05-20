@@ -1,7 +1,30 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title Welcome
+    link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/style.css', rel='stylesheet')
   body
-    block content
+    .nav.navbar-expand-md.navbar-light
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#1234')
+        span.sr-only Toggle navigation
+        span.navbar-toggler-icon
+        span.navbar-toggler-icon
+        span.navbar-toggler-icon
+      .navbar-collapse.collapse(id='1234')
+        a.navbar-brand(href='#') NodeAuth
+        ul.nav.navbar-nav.mr-auto
+          li.nav-item(class=(title == 'Members' ? 'active' : ''))
+            a.nav-link(href='/') Members
+          li.nav-item(class=(title == 'Register' ? 'active' : ''))
+            a.nav-link(href='/users/register') Register
+          li.nav-item(class=(title == 'Login' ? 'active' : ''))
+            a.nav-link(href='/users/login') Login
+        ul.nav.navbar-nav.ml-auto.navbar-right
+          li.nav-item
+            a.nav-link(href='/users/logout') Logout
+    .container
+      block content
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
