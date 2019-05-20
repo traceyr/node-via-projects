@@ -10,7 +10,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const multer = require('multer');
 let uploads = multer({ dest: './uploads' })
-const connectFlash = require('connect-flash');
+const flash = require('connect-flash');
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
@@ -60,9 +60,9 @@ app.use(expressValidator({
   }
 }));
 
-app.use(connectFlash());
+app.use(flash());
 app.use(function(req, res, next) {
-  res.locals.message = require('express-messages')(req, res);
+  res.locals.messages = require('express-messages')(req, res);
   next();
 });
 
