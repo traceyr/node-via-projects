@@ -11,6 +11,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const multer = require('multer');
 let uploads = multer({ dest: './uploads' })
 const flash = require('connect-flash');
+const bcryptjs = require('bcryptjs');
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const expressValidator = require('express-validator');
@@ -63,6 +64,11 @@ app.use(expressValidator({
 app.use(flash());
 app.use(function(req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+app.get('*', function(req, res, next) {
+  res.locals.user = req.user || null;
   next();
 });
 
