@@ -8,15 +8,16 @@ let logger = require('morgan');
 let session = require('express-session');
 let multer = require('multer');
 let upload = multer({ dest: 'uploads/' });
-let moment = require('moment');
 let expressValidator = require('express-validator');
 
 let db = require('monk')('localhost/nodeblog');
 
 let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+let postsRouter = require('./routes/posts');
 
 let app = express();
+
+app.locals.moment = require('moment');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -66,7 +67,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/post', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
