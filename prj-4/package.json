@@ -16,7 +16,7 @@
     "express-validator": "^5.3.1",
     "http-errors": "~1.6.3",
     "jstransformer": "^1.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongodb": "^3.3.0-beta2",
     "monk": "^7.0.0",
     "morgan": "~1.9.1",
